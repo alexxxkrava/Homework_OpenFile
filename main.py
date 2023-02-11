@@ -17,6 +17,20 @@ with open('recipes.txt', 'r+', encoding = 'UTF-8') as file:
     print(cook_book)
 
 def get_shop_list_by_dishes(dishes, person_count):
+    res1 = {}
+    for key, val in cook_book.items():
+        if key in dishes:
+            for i in val:
+                res1[i['ingredient_name']] = {
+                    'quantity': int(i['quantity']) * person_count,
+                    'measure': i['measure']
+                }
+    print(res1)
+
+get_shop_list_by_dishes(['Омлет', 'Омлет','Утка по-пекински'], 4)
+
+
+
 
 
 
